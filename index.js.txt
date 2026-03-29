@@ -1,0 +1,49 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const sqlite3 = require('sqlite3').verbose();
+const bcrypt = require('bcrypt');
+
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
+
+const db = new sqlite3.Database('./database.db');
+
+db.serialize(() => {
+  db.run(`CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE,
+    password TEXT
+  )`);
+});
+
+app.post('/register', async (req, res) => {
+  const { email, password } = req.body;
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  db.run(
+    'INSERT INTO users (email, password) VALUES (?, ?)',
+    [email, hashedPassword],
+    function (err) {
+      if (err) return res.json({ error: 'User exists' });
+      res.json({ message: 'User created' });
+    }
+  );
+});
+
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+  db.get('SELECT * FROM users WHERE email = ?', [email], async (err, user) => {
+    if (!user) return res.json({ error: 'User not found' });
+
+    const valid = await bcrypt.compare(password, user.password);
+    if (!valid) return res.json({ error: 'Wrong password' });
+
+    res.json({ message: 'Login OK' });
+  });
+});
+
+app.listen(3000, () => console.log('Server running'));

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hotel Aurora</title>
+</head>
+<body>
+
+<h1>Hotel Aurora</h1>
+
+<h2>Register</h2>
+<input id="regEmail" placeholder="email"><br>
+<input id="regPass" type="password" placeholder="password"><br>
+<button onclick="register()">Register</button>
+
+<h2>Login</h2>
+<input id="logEmail" placeholder="email"><br>
+<input id="logPass" type="password" placeholder="password"><br>
+<button onclick="login()">Login</button>
+
+<script>
+async function register() {
+  const email = document.getElementById('regEmail').value;
+  const password = document.getElementById('regPass').value;
+
+  const res = await fetch('http://localhost:3000/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+  });
+
+  const data = await res.json();
+  alert(JSON.stringify(data));
+}
+
+async function login() {
+  const email = document.getElementById('logEmail').value;
+  const password = document.getElementById('logPass').value;
+
+  const res = await fetch('http://localhost:3000/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+  });
+
+  const data = await res.json();
+  alert(JSON.stringify(data));
+}
+</script>
+
+</body>
+</html>
