@@ -1,6 +1,6 @@
-**1. Tytuł projektu**
+##1. Tytuł projektu##
 
-2. Opis projektu
+##2. Opis projektu##
    
 3. Sprint Plan
    
