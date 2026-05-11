@@ -8,7 +8,7 @@ Projekt przedstawia aplikację webową umożliwiającą rezerwację pokoi hotelo
 
 ## 3. Sprint Plan ##
 
-&SPRINT 1&
+//SPRINT 1//
   1 Utworzenie repozytorium i README
   2 Konfiguracja struktury folderów projektu
   3 Utworzenie projektu w Figma
