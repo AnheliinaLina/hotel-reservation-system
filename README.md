@@ -7,7 +7,40 @@ System rezerwacji pokoi w hotelu „Aurora”
 Projekt przedstawia aplikację webową umożliwiającą rezerwację pokoi hotelowych online. System pozwala użytkownikom przeglądać ofertę, sprawdzać dostępność, dokonywać rezerwacji oraz zarządzać swoim kontem. Administratorzy mają możliwość zarządzania pokojami, użytkownikami i rezerwacjami.
 
 ## 3. Sprint Plan ##
-   
+
+SPRINT 1
+  1 Utworzenie repozytorium i README
+  2 Konfiguracja struktury folderów projektu
+  3 Utworzenie projektu w Figma
+  4 Wireframe strony głównej
+  5 Projekt listy pokoi i formularza rezerwacji 
+  6 Strona główna 
+  7 Lista pokoi 
+  8 Login / Rejestracja
+  9 Formularz rezerwacji 
+  10 Walidacja formularzy 
+  11 Nawigacja JS 
+  12 Responsywność mobile 
+  13 Poprawa wyglądu strony 
+
+SPRINT 2
+  14 Node.js + Express setup 
+  15 Routing API 
+  16 Połączenie z bazą danych 
+  17 Rejestracja użytkownika 
+  18 Logowanie 
+  19 Autoryzacja 
+  20 Lista pokoi z bazy 
+
+SPRINT 3
+  21 Tworzenie rezerwacji 
+  22 Anulowanie rezerwacji 
+  23 Zarządzanie pokojami 
+  24 Zarządzanie rezerwacjami 
+  25 Testy systemu 
+  26 Poprawa błędów 
+  27 Deployment 
+  
 ## 4. Autorzy ##
    
    Anhelina Poimanova
