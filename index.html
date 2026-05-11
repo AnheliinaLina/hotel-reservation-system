@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Aurora - Ultimate Comfort</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* Додано за вашим запитом */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="contact-info">
+            <span>📞 +48 000 000 000</span>
+        </div>
+        <div class="nav-actions">
+            <button class="lang-btn">🌐 ENG</button>
+            <button class="secondary-btn" onclick="window.location.href='create_account.html'">Create account</button>
+            <button class="primary-btn" onclick="window.location.href='login.html'">Log in ➔</button>
+        </div>
+    </header>
+
+    <div class="logo-bar">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo_aurora.jpg" alt="Hotel Aurora Logo">
+            </a>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-background">
+            <img src="main_hero_image.jpg" alt="Hotel Interior">
+            <div class="dark-overlay"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Ultimate comfort <br> in the heart of the city</h1>
+                <p>We offer 200+ modern hotel rooms for your perfect stay.</p>
+            </div>
+            <div class="booking-widget">
+                <div class="input-group">
+                    <label>Check in</label>
+                    <input type="date" id="main-in">
+                </div>
+                <div class="input-group">
+                    <label>Check out</label>
+                    <input type="date" id="main-out">
+                </div>
+                <div class="input-group">
+                    <label>Guests</label>
+                    <select id="main-guests">
+                        <option value="1">1 Guest</option>
+                        <option value="2" selected>2 Guests</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Rooms</label>
+                    <select>
+                        <option selected>1 Room</option>
+                        <option>2 Rooms</option>
+                    </select>
+                </div>
+                <button class="check-btn" onclick="startBooking()">Check availability</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="centered-content-wrapper">
+        <div class="info-header">
+            <h2>Hotel Aurora Is Where Your Unforgettable Vacation Begins</h2>
+            <p>Hotel Aurora is ideal for a great stay with family, friends or alone.</p>
+        </div>
+
+        <section class="feature-row">
+            <div class="feature-image">
+                <img src="room_image.jpg" alt="Modern Rooms">
+            </div>
+            <div class="feature-text dark-blue-bg">
+                <h3>Comfortable & Modern Rooms</h3>
+                <p>Our hotel offers our clients modernly renovated rooms, fully equipped with new appliances.</p>
+            </div>
+        </section>
+
+        <section class="feature-row reverse">
+            <div class="feature-image">
+                <img src="meals_image.jpg" alt="Delicious Meals">
+            </div>
+            <div class="feature-text light-blue-bg">
+                <h3>Delicious Meals</h3>
+                <p>Our bars and restaurants with a full range of services are the variety of choice and comfort.</p>
+            </div>
+        </section>
+
+        <section class="feature-row">
+            <div class="feature-image">
+                <img src="staff_image.jpg" alt="Friendly Staff">
+            </div>
+            <div class="feature-text staff-bg">
+                <h3>Friendly Staff</h3>
+                <p>Our team’s goal is to provide you with everything you need to enjoy every moment.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer-contacts">
+        <div class="footer-inner">
+            <div class="social-block">
+                <h4>Our socials</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="instagram_icon.png" alt="Insta" class="s-icon"></a>
+                    <a href="#"><img src="facebook_icon.png" alt="FB" class="s-icon"></a>
+                </div>
+            </div>
+            <div class="booking-call">
+                <p>You can reserve rooms on our website or by phone:</p>
+                <strong>+48 000 000 000</strong>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright-bar">
+        <p>© 2026 Hotel Aurora. All rights reserved</p>
+    </div>
+
+    <script>
+        function startBooking() {
+            const checkIn = document.getElementById('main-in').value;
+            const checkOut = document.getElementById('main-out').value;
+            const guests = document.getElementById('main-guests').value;
+
+            // Передаємо параметри на сторінку вибору номерів
+            let url = 'rooms.html';
+            if (checkIn && checkOut) {
+                url += `?in=${checkIn}&out=${checkOut}&guests=${guests}`;
+            }
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>

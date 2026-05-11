@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile - Hotel Aurora</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        .profile-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 5%;
+            flex-wrap: wrap;
+        }
+        .profile-card {
+            background: #e2eeff;
+            border-radius: 15px;
+            padding: 30px;
+            width: 450px;
+            min-height: 300px;
+            position: relative;
+            color: #3b5a84;
+            text-align: left;
+        }
+        .blue-dot {
+            width: 30px; height: 30px;
+            background: #74abf5;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .profile-card h2 { margin-bottom: 15px; font-size: 24px; font-weight: normal; }
+        .info-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .info-item label { display: block; font-size: 14px; color: #5a7ba3; margin-bottom: 5px; }
+        .info-item span { font-size: 18px; display: block; border-bottom: 1px dashed #74abf5; min-width: 100px; }
+        
+        .change-btn {
+            position: absolute; bottom: 30px; right: 30px;
+            background: #74abf5; color: white; border: none;
+            padding: 10px 25px; border-radius: 8px; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center; color:#3b5a84; font-size:42px; margin-top:40px;">My Profile</h1>
+
+    <div class="profile-grid">
+        <div class="profile-card">
+            <div class="blue-dot"></div>
+            <h2 id="prof-full-name">Name Surname</h2>
+            <p id="prof-email" style="font-size: 20px; margin-bottom: 10px;">E-mail</p>
+            <p id="prof-phone" style="font-size: 20px;">Phone number</p>
+            <button class="change-btn" onclick="location.href='create_account.html'">Change info</button>
+        </div>
+
+        <div class="profile-card">
+            <div class="blue-dot"></div>
+            <p style="margin-bottom: 20px; font-size: 18px;">Personal info</p>
+            
+            <div class="info-row">
+                <div class="info-item"><label>name</label><span id="val-name">NAME</span></div>
+                <div class="info-item"><label>surname</label><span id="val-surname">SURNAME</span></div>
+            </div>
+            <div class="info-row">
+                <div class="info-item"><label>street</label><span id="val-street">-------</span></div>
+                <div class="info-item"><label>phone number</label><span id="val-phone">-------</span></div>
+            </div>
+            <div class="info-row">
+                <div class="info-item"><label>city</label><span id="val-city">Lublin</span></div>
+                <div class="info-item"><label>post index</label><span id="val-post">-------</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // ЗЧИТУВАННЯ ДАНИХ
+            const data = JSON.parse(localStorage.getItem('user'));
+
+            if (data) {
+                // Заповнення лівої картки
+                document.getElementById('prof-full-name').innerText = `${data.name} ${data.surname}`;
+                document.getElementById('prof-email').innerText = data.email;
+                document.getElementById('prof-phone').innerText = data.phone;
+
+                // Заповнення правої картки (Personal info)
+                document.getElementById('val-name').innerText = data.name.toUpperCase();
+                document.getElementById('val-surname').innerText = data.surname.toUpperCase();
+                document.getElementById('val-street').innerText = data.street || '-------';
+                document.getElementById('val-phone').innerText = data.phone;
+                document.getElementById('val-city').innerText = data.city || 'Lublin';
+                document.getElementById('val-post').innerText = data.post || '-------';
+            }
+        };
+    </script>
+</body>
+</html>

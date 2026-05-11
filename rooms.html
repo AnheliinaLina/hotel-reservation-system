@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Rooms - Hotel Aurora</title>
+    <link rel="stylesheet" href="rooms.css">
+    <style>
+        /* Глобальне скидання відступів */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="contact-info">
+            <span>📞 +48 000 000 000</span>
+        </div>
+        <div class="nav-actions">
+            <button class="lang-btn">🌐 ENG</button>
+            <button class="secondary-btn" onclick="location.href='create_account.html'">Create account</button>
+            <button class="primary-btn" onclick="location.href='login.html'">Log in ➔</button>
+        </div>
+    </header>
+
+    <div class="logo-bar">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo_aurora.jpg" alt="Hotel Aurora Logo">
+            </a>
+        </div>
+    </div>
+
+    <section class="filter-section-rooms">
+        <div class="booking-widget">
+            <div class="input-group">
+                <label>Check in</label>
+                <input type="date" id="filter-in">
+            </div>
+            <div class="input-group">
+                <label>Check out</label>
+                <input type="date" id="filter-out">
+            </div>
+            <div class="input-group">
+                <label>Guests</label>
+                <select id="filter-guests">
+                    <option value="any">Any</option>
+                    <option value="1">1 Person</option>
+                    <option value="2" selected>2 People</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Rooms</label>
+                <select id="filter-rooms">
+                    <option value="1">1 Room</option>
+                    <option value="2">2 Rooms</option>
+                </select>
+            </div>
+            <button class="check-btn" onclick="applyFilter()">Check availability</button>
+        </div>
+    </section>
+
+    <main class="container">
+        <h2 class="results-count" id="results-text">Results 4</h2>
+
+        <div class="room-card" data-guests="2">
+            <div class="room-image">
+                <img src="royal_suite.jpg" alt="Royal Ocean View Suite">
+            </div>
+            <div class="room-info">
+                <h3>Royal Ocean View Suite</h3>
+                <span class="guest-count">FOR 2 PEOPLE</span>
+                <p class="description">
+                    A spacious and bright room with a panoramic sea view, where every morning begins with the gentle sound of waves and a beautiful sunrise.
+                </p>
+                <ul class="features-list">
+                    <li>large comfortable double bed with an orthopedic mattress</li>
+                    <li>free high-speed Wi-Fi</li>
+                    <li>air conditioning and climate control system</li>
+                </ul>
+                <div class="price-box">
+                    <span class="amount">350€</span>
+                    <span class="period">per night</span>
+                    <button class="reserve-btn" onclick="goToBooking('royal')">Reserve</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="room-card" data-guests="1">
+            <div class="room-image">
+                <img src="paradise_room.jpg" alt="Paradise Horizon Room">
+            </div>
+            <div class="room-info">
+                <h3>Paradise Horizon Room</h3>
+                <span class="guest-count">FOR 1 PERSON</span>
+                <p class="description">
+                    A comfortable and well-designed room, perfect for a relaxing stay. The interior is decorated in soft, neutral tones.
+                </p>
+                <ul class="features-list">
+                    <li>comfortable bed with an orthopedic mattress</li>
+                    <li>window with natural daylight</li>
+                    <li>free high-speed Wi-Fi</li>
+                </ul>
+                <div class="price-box">
+                    <span class="amount">200€</span>
+                    <span class="period">per night</span>
+                    <button class="reserve-btn" onclick="goToBooking('paradise')">Reserve</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="room-card" data-guests="2">
+            <div class="room-image">
+                <img src="luxe_marine.jpg" alt="Luxe Marine Suite">
+            </div>
+            <div class="room-info">
+                <h3>Luxe Marine Suite</h3>
+                <span class="guest-count">FOR 2 PEOPLE</span>
+                <p class="description">
+                    A comfortable and well-designed room for two guests, perfect for a relaxing and enjoyable stay.
+                </p>
+                <ul class="features-list">
+                    <li>large comfortable double bed</li>
+                    <li>kettle, coffee machine, and minibar</li>
+                </ul>
+                <div class="price-box">
+                    <span class="amount">300€</span>
+                    <span class="period">per night</span>
+                    <button class="reserve-btn" onclick="goToBooking('luxe')">Reserve</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="room-card" data-guests="2">
+            <div class="room-image">
+                <img src="blue_infinity.jpg" alt="Blue Infinity Suite">
+            </div>
+            <div class="room-info">
+                <h3>Blue Infinity Suite</h3>
+                <span class="guest-count">FOR 2 PEOPLE</span>
+                <p class="description">
+                    A stylish and comfortable room for two guests, located on the 6th floor, offering more privacy and a pleasant elevated view.
+                </p>
+                <ul class="features-list">
+                    <li>private balcony with outdoor seating</li>
+                    <li>free high-speed Wi-Fi</li>
+                    <li>air conditioning and climate control</li>
+                </ul>
+                <div class="price-box">
+                    <span class="amount">250€</span>
+                    <span class="period">per night</span>
+                    <button class="reserve-btn" onclick="goToBooking('infinity')">Reserve</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="copyright-bar">
+        <p>© 2026 Hotel Aurora. All rights reserved</p>
+    </footer>
+
+    <script>
+        // При завантаженні: ловимо дати з index.html
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('in')) document.getElementById('filter-in').value = params.get('in');
+            if (params.has('out')) document.getElementById('filter-out').value = params.get('out');
+            if (params.has('guests')) document.getElementById('filter-guests').value = params.get('guests');
+            applyFilter();
+        };
+
+        // Логіка фільтрації
+        function applyFilter() {
+            const guestFilter = document.getElementById('filter-guests').value;
+            const cards = document.querySelectorAll('.room-card');
+            let count = 0;
+            
+            cards.forEach(card => {
+                const cardGuests = card.getAttribute('data-guests');
+                if (guestFilter === 'any' || guestFilter === cardGuests) {
+                    card.style.display = 'flex';
+                    count++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            document.getElementById('results-text').innerText = 'Results ' + count;
+        }
+
+        // ПРАВИЛЬНА ФУНКЦІЯ ДЛЯ КНОПОК RESERVE
+        function goToBooking(roomType) {
+            const checkIn = document.getElementById('filter-in').value;
+            const checkOut = document.getElementById('filter-out').value;
+
+            let url = `booking.html?room=${roomType}`;
+            if (checkIn && checkOut) {
+                url += `&in=${checkIn}&out=${checkOut}`;
+            }
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

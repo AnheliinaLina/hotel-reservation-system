@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed - Hotel Aurora</title>
+    <link rel="stylesheet" href="confirmation.css">
+    <style>
+        /* Глобальне скидання для відповідності дизайну */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="contact-info"><span>📞 +48 000 000 000</span></div>
+        <div class="nav-actions">
+            <button class="lang-btn">🌐 ENG</button>
+            <button class="secondary-btn" onclick="location.href='create_account.html'">Create account</button>
+            <button class="primary-btn" onclick="location.href='login.html'">Log in ➔</button>
+        </div>
+    </header>
+
+    <div class="logo-bar">
+        <div class="logo-container">
+            <a href="index.html"><img src="logo_aurora.jpg" alt="Hotel Aurora Logo"></a>
+        </div>
+    </div>
+
+    <main class="confirmation-container">
+        <h1 class="conf-title" id="main-conf-title">
+            Confirmed: <span id="display-nights">2</span> Nights In The <span id="display-room-name">Royal "Ocean View Suite"</span>, Lublin
+        </h1>
+
+        <div class="booked-for">
+            Booked: <span id="display-guest-name">Guest</span> <span id="display-guest-surname"></span>
+        </div>
+
+        <div class="conf-grid">
+            <div class="left-column">
+                <p class="label-text">Date:</p>
+                <div class="info-card dates-card">
+                    <div class="date-box">
+                        <span class="small-label">Arrival:</span>
+                        <span class="date-val" id="display-in">d/m/y</span>
+                    </div>
+                    <div class="arrow">></div>
+                    <div class="date-box">
+                        <span class="small-label">Departure:</span>
+                        <span class="date-val" id="display-out">d/m/y</span>
+                    </div>
+                </div>
+
+                <div class="info-card address-card">
+                    <span class="small-label">Address:</span>
+                    <p>Seafront Boulevard 12</p>
+                    <p>Baltic Coast District</p>
+                    <p>20-001, Lublin</p>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="info-card fees-card">
+                    <span class="small-label">Fees:</span>
+                    <div class="fee-row">
+                        <span id="price-calculation">350€ x 2 days</span>
+                        <span id="subtotal">700€</span>
+                    </div>
+                    <div class="fee-row">
+                        <span>VAT</span>
+                        <span id="vat-amount">12€</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Total:</span>
+                        <span id="final-total">712€</span>
+                    </div>
+                </div>
+
+                <div class="email-notice">
+                    Payment confirmation has been sent via e-mail
+                </div>
+                
+                <p style="margin-top: 20px; color: #5a7ba3; font-size: 14px;">
+                    Want to manage your booking? <a href="create_account.html" style="color: #74abf5;">Create an account</a> using your details.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="copyright-bar">
+        <p>© 2026 Hotel Aurora. All rights reserved</p>
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        
+        // 1. Дані гостя
+        if (params.has('name')) document.getElementById('display-guest-name').innerText = params.get('name');
+        if (params.has('surname')) document.getElementById('display-guest-surname').innerText = params.get('surname');
+
+        // 2. Робота з датами
+        const checkInStr = params.get('in');
+        const checkOutStr = params.get('out');
+        let nights = 2;
+
+        if (checkInStr && checkOutStr) {
+            const dateIn = new Date(checkInStr);
+            const dateOut = new Date(checkOutStr);
+            
+            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+            document.getElementById('display-in').innerText = dateIn.toLocaleDateString('uk-UA', options);
+            document.getElementById('display-out').innerText = dateOut.toLocaleDateString('uk-UA', options);
+
+            const diffTime = Math.abs(dateOut - dateIn);
+            nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            if (nights < 1) nights = 1;
+            
+            document.getElementById('display-nights').innerText = nights;
+        }
+
+        // 3. Логіка кімнат
+        const roomType = params.get('room');
+        const roomDisplay = document.getElementById('display-room-name');
+        let roomPrice = 350;
+
+        const rooms = {
+            'royal': { name: 'Royal "Ocean View Suite"', price: 350 },
+            'luxe': { name: 'Luxe "Marine Suite"', price: 300 },
+            'infinity': { name: 'Blue "Infinity Suite"', price: 250 },
+            'paradise': { name: 'Paradise "Horizon Room"', price: 200 }
+        };
+
+        if (rooms[roomType]) {
+            roomDisplay.innerText = rooms[roomType].name;
+            roomPrice = rooms[roomType].price;
+        }
+
+        // 4. Фінальний розрахунок
+        function calculateFinalFees(price, n) {
+            const subtotal = price * n;
+            const vat = 12; 
+            const total = subtotal + vat;
+
+            document.getElementById('price-calculation').innerText = `${price}€ x ${n} days`;
+            document.getElementById('subtotal').innerText = subtotal + '€';
+            document.getElementById('final-total').innerText = total + '€';
+        }
+
+        calculateFinalFees(roomPrice, nights);
+    </script>
+</body>
+</html>

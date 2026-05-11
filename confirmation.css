@@ -1,0 +1,126 @@
+/* Базові стилі */
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    background-color: #fff; 
+    color: #334d6e; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Щоб футер завжди був внизу, навіть якщо мало контенту */
+}
+
+.top-nav { 
+    background-color: #e8f1ff; 
+    padding: 10px 5%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.logo-bar { 
+    text-align: center; 
+    padding: 20px; 
+}
+
+.logo-container img { 
+    width: 180px; 
+}
+
+/* Контейнер підтвердження */
+.confirmation-container { 
+    max-width: 1000px; 
+    margin: 40px auto; 
+    padding: 0 20px; 
+    flex: 1; /* Заповнює вільний простір, штовхаючи футер вниз */
+}
+
+.conf-title { 
+    font-weight: normal; 
+    font-size: 28px; 
+    text-align: center; 
+    margin-bottom: 30px; 
+}
+
+.booked-for { 
+    font-size: 18px; 
+    margin-bottom: 40px; 
+    margin-left: 20px; 
+}
+
+/* Сітка - блоки тепер на одному рівні */
+.conf-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    align-items: start; /* Вирівнює верхівки карток по одній лінії */
+}
+
+/* Картки з інфою */
+.info-card { 
+    background-color: #e2eeff; 
+    border-radius: 12px; 
+    padding: 25px; 
+    margin-bottom: 25px; 
+    min-height: 120px; 
+    box-sizing: border-box;
+}
+
+.small-label { 
+    display: block; 
+    font-size: 14px; 
+    color: #5a7ba3; 
+    margin-bottom: 15px; 
+}
+
+/* Дати */
+.dates-card { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-around; 
+    text-align: center; 
+}
+
+.date-val { 
+    font-size: 18px; 
+    display: block; 
+}
+
+.arrow { 
+    font-size: 24px; 
+    color: #5a7ba3; 
+}
+
+/* Ціни */
+.fee-row { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 10px; 
+    font-size: 18px; 
+}
+
+.total-row { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 30px; 
+    font-size: 22px; 
+    font-weight: bold; 
+}
+
+/* Повідомлення про пошту */
+.email-notice { 
+    background-color: #e2eeff; 
+    border-radius: 12px; 
+    padding: 20px; 
+    text-align: center; 
+    font-size: 18px; 
+}
+
+/* Оновлений футер - більше не перекриває контент */
+.copyright-bar { 
+    background-color: #8bb3e8; 
+    color: #334d6e; 
+    text-align: center; 
+    padding: 15px; 
+    width: 100%; 
+    margin-top: auto; /* Додатковий захист, щоб футер був внизу */
+}

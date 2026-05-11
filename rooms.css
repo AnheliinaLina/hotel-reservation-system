@@ -1,0 +1,119 @@
+/* --- БАЗОВІ НАЛАШТУВАННЯ --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: white;
+}
+
+/* --- НАВІГАЦІЯ --- */
+.top-nav { background-color: #DDEBFF; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; }
+.nav-actions button { margin-left: 10px; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; font-family: inherit; }
+.primary-btn { background-color: #6da9f2; color: white; }
+.secondary-btn { background-color: #90c2ff; color: white; }
+.lang-btn { background: white; border: 1px solid #ccc; }
+.logo-bar { padding: 30px 0; text-align: center; }
+.logo-container img { width: 400px; height: auto; }
+
+/* --- ФІЛЬТР --- */
+.filter-section-rooms { padding: 40px 0; text-align: center; }
+.booking-widget {
+    background: white;
+    padding: 25px 35px;
+    border-radius: 15px;
+    display: inline-flex;
+    gap: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    align-items: flex-end;
+}
+.input-group { display: flex; flex-direction: column; text-align: left; }
+.input-group label { font-size: 13px; margin-bottom: 5px; color: #666; font-weight: bold; }
+.input-group input, .input-group select { padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; min-width: 160px; }
+.check-btn { background: #6da9f2; color: white; border: none; padding: 12px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; height: 46px; }
+
+/* --- КАРТКИ НОМЕРІВ --- */
+.container { max-width: 1440px; margin: 0 auto; padding: 0 20px; }
+.results-count { color: #3b6091; font-size: 24px; font-weight: bold; padding: 30px 0; }
+
+.room-card {
+    display: flex;
+    background-color: #8bb3e8; 
+    border-radius: 15px;
+    margin-bottom: 40px;
+    overflow: hidden; 
+    color: white;
+    width: 100%;
+    height: 469px; 
+}
+
+.room-image { 
+    width: 587px; 
+    height: 469px; 
+    flex-shrink: 0; 
+}
+
+.room-image img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.room-info { 
+    flex-grow: 1; 
+    padding: 30px 40px; 
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+.room-info h3 { font-size: 2.2rem; margin-bottom: 2px; font-weight: normal; }
+.guest-count { font-weight: bold; margin-bottom: 12px; display: block; font-size: 0.85rem; }
+
+.description { 
+    font-size: 0.9rem; 
+    line-height: 1.3; 
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Обмежено до 3 рядків для економії місця */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.features-list { list-style: none; font-size: 0.85rem; margin-bottom: 8px; }
+.features-list li { margin-bottom: 2px; }
+.features-list li::before { content: "•"; margin-right: 8px; }
+
+.additional-perks { margin-top: 5px; font-size: 0.85rem; }
+.additional-perks strong { display: block; margin-bottom: 2px; }
+
+/* --- ФІКСОВАНА ПОЗИЦІЯ ЦІНИ ТА КНОПКИ --- */
+.price-box { 
+    position: absolute; /* Елемент тепер незалежний від тексту */
+    bottom: 30px;       /* Відступ від нижнього краю */
+    right: 30px;        /* Відступ від правого краю */
+    text-align: right; 
+    background-color: transparent; /* Щоб не перекривати синій фон */
+    z-index: 10;
+}
+
+.amount { font-size: 2.2rem; font-weight: bold; display: block; line-height: 1; }
+.period { font-size: 0.85rem; opacity: 0.9; margin-bottom: 10px; display: block; }
+
+.reserve-btn {
+    background-color: #3b6091;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.reserve-btn:hover {
+    background-color: #2e4a70;
+}
+
+/* ФУТЕР */
+.copyright-bar { background-color: #8bb3e8; color: #3b6091; text-align: center; padding: 25px; margin-top: 50px; }
