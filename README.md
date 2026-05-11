@@ -33,6 +33,8 @@ Projekt przedstawia aplikację webową umożliwiającą rezerwację pokoi hotelo
    4.Wybierz termin i dokonaj rezerwacji
    5.Sprawdź swoje rezerwacje w panelu użytkownika
 ## 11. Struktura repozytorium ##
+frontend/ - interfejs użytkownika
+backend/ - logika aplikacji
  
 ## 12. API (jeśli istnieje) ##
 
@@ -44,5 +46,7 @@ https://www.figma.com/design/SBx4EnimALv3DWFBJqLF2h/Untitled?node-id=0-1&t=z0A8h
 <img width="1895" height="859" alt="Знімок екрана 2026-05-05 162352" src="https://github.com/user-attachments/assets/9addfbb9-cd0f-48b6-8bdf-a70b0cf9e3c5" />
 
 ## 14. Status projektu ##
+Projekt w trakcie rozwoju.
 
 ## 15. Licencja ##
+Projekt edukacyjny.
