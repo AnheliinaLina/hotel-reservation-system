@@ -85,7 +85,7 @@ SPRINT 3
 
 ## 13. Zrzuty ekranu ##
   
-  https://www.figma.com/design/SBx4EnimALv3DWFBJqLF2h/Untitled?node-id=0-1&t=z0A8hdybWaOqCupA-1
+  (https://www.figma.com/design/SBx4EnimALv3DWFBJqLF2h/Untitled?node-id=0-1&t=z0A8hdybWaOqCupA-1)
 <img width="1892" height="862" alt="Знімок екрана 2026-05-05 162310" src="https://github.com/user-attachments/assets/2db7c8ad-f86a-47c2-81ab-5cd1ba801e3a" />
 <img width="1894" height="859" alt="Знімок екрана 2026-05-05 162321" src="https://github.com/user-attachments/assets/1ad4e51c-d543-4dea-a57e-29bd54275aa6" />
 <img width="1896" height="864" alt="Знімок екрана 2026-05-05 162341" src="https://github.com/user-attachments/assets/cd856c63-cc20-437d-89fa-a07faa6c3fef" />
