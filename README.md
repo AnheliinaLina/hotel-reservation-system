@@ -68,13 +68,13 @@ SPRINT 3
 ## 9. Uruchomienie aplikacji ##
 
 ## 10. Instrukcja użytkownika ##
-   
+   ```
    1.Otwórz aplikację w przeglądarce
    2.Zarejestruj się lub zaloguj
    3.Przeglądaj dostępne pokoje
    4.Wybierz termin i dokonaj rezerwacji
    5.Sprawdź swoje rezerwacje w panelu użytkownika
-
+```
 ## 11. Struktura repozytorium ##
 
   frontend/ - interfejs użytkownika
