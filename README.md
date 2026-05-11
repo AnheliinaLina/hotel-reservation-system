@@ -34,6 +34,7 @@ Projekt przedstawia aplikację webową umożliwiającą rezerwację pokoi hotelo
    5.Sprawdź swoje rezerwacje w panelu użytkownika
 ## 11. Struktura repozytorium ##
 frontend/ - interfejs użytkownika
+
 backend/ - logika aplikacji
  
 ## 12. API (jeśli istnieje) ##
