@@ -9,19 +9,11 @@ Projekt przedstawia aplikację webową umożliwiającą rezerwację pokoi hotelo
 ## 3. Sprint Plan ##
 ```
 SPRINT 1
-  1 Utworzenie repozytorium i README
-  2 Konfiguracja struktury folderów projektu
-  3 Utworzenie projektu w Figma
-  4 Wireframe strony głównej
-  5 Projekt listy pokoi i formularza rezerwacji 
-  6 Strona główna 
-  7 Lista pokoi 
-  8 Login / Rejestracja
-  9 Formularz rezerwacji 
-  10 Walidacja formularzy 
-  11 Nawigacja JS 
-  12 Responsywność mobile 
-  13 Poprawa wyglądu strony 
+  1.Utworzenie repozytorium i README 
+  2.Konfiguracja struktury folderów projektu 
+  3.Utworzenie projektu w Figma
+  4.Wireframe projektu strony
+  5.Tworzenie projektu strony z perspektywy użytkownika 
 
 SPRINT 2
   14 Node.js + Express setup 
