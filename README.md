@@ -16,22 +16,25 @@ SPRINT 1
   5.Tworzenie projektu strony z perspektywy użytkownika 
 
 SPRINT 2
-  14 Node.js + Express setup 
-  15 Routing API 
-  16 Połączenie z bazą danych 
-  17 Rejestracja użytkownika 
-  18 Logowanie 
-  19 Autoryzacja 
-  20 Lista pokoi z bazy 
+  6.Strona główna 
+  7.Lista pokoi 
+  8.Responsywność mobile
+  9.Logowanie 
 
 SPRINT 3
-  21 Tworzenie rezerwacji 
-  22 Anulowanie rezerwacji 
-  23 Zarządzanie pokojami 
-  24 Zarządzanie rezerwacjami 
-  25 Testy systemu 
-  26 Poprawa błędów 
-  27 Deployment 
+  10.Rejestracja
+  11.Formularz rezerwacji
+  12.Walidacja formularzy
+  13.Tworzenie rezerwacji
+  14.Anulowanie rezerwacji
+  15.Zarządzanie pokojami
+  16.Zarządzanie rezerwacjami
+
+Sprint 4
+  17.Testy demo
+  18.Poprawa błędów
+  19.Poprawa wyglądu strony 
+  20.Deployment 
   ```
 ## 4. Autorzy ##
    
