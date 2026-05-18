@@ -59,7 +59,7 @@ Sprint 4
 ## 8. Instalacja ##
 
    Sklonuj repozytorium:
-   git clone (https://github.com/AnheliinaLina/hotel-reservation-system)
+   (https://github.com/AnheliinaLina/hotel-reservation-system)
 
 ## 9. Instrukcja użytkownika ##
    ```
