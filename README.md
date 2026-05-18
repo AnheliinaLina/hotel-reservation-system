@@ -18,23 +18,19 @@ SPRINT 1
 SPRINT 2
   6.Strona główna 
   7.Lista pokoi 
-  8.Responsywność mobile
-  9.Logowanie 
+  8.Logowanie 
 
 SPRINT 3
   10.Rejestracja
   11.Formularz rezerwacji
   12.Walidacja formularzy
   13.Tworzenie rezerwacji
-  14.Anulowanie rezerwacji
-  15.Zarządzanie pokojami
-  16.Zarządzanie rezerwacjami
 
 Sprint 4
-  17.Testy demo
-  18.Poprawa błędów
-  19.Poprawa wyglądu strony 
-  20.Deployment 
+  14.Testy demo
+  15.Poprawa błędów
+  16.Poprawa wyglądu strony 
+  17.Deployment 
   ```
 ## 4. Autorzy ##
    
