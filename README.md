@@ -53,8 +53,13 @@ Sprint 4
    płatności online (opcjonalnie)
 
 ## 7. Architektura projektu ##
- 
+
+   Strona internetowa jest zbudowana w architekturze klient–serwer.
+   
 ## 8. Instalacja ##
+
+   Sklonuj repozytorium:
+   git clone (https://github.com/AnheliinaLina/hotel-reservation-system)
 
 ## 9. Instrukcja użytkownika ##
    ```
