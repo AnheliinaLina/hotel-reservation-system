@@ -1,0 +1,184 @@
+/* Базові стилі */
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    background-color: #fff; 
+    color: #334d6e; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Щоб футер завжди був внизу, навіть якщо мало контенту */
+}
+
+/* ==========================================================================
+   ОНОВЛЕНА НАВІГАЦІЯ (ДЛЯ СТОРІНКИ ПІДТВЕРДЖЕННЯ)
+   ========================================================================== */
+.top-nav { 
+    background-color: #DDEBFF; /* Фірмовий фон хедера */
+    padding: 15px 5%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* Номер телефону у хедері */
+.contact-info {
+    color: #3b6091;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+}
+
+/* Єдиний стандарт кнопок (як на сторінці кімнат та індексі) */
+.nav-actions button { 
+    margin-left: 10px; 
+    padding: 10px 20px;       /* Великий розмір кнопок */
+    border-radius: 8px;       /* Закруглення 8px */
+    border: none; 
+    cursor: pointer; 
+    font-family: inherit; 
+    font-weight: bold;        /* Жирний текст */
+    font-size: 14px; 
+    transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+}
+
+/* Кнопка мови (🌐 ENG) — біла з рамкою */
+.lang-btn { 
+    background: white !important; 
+    color: #2a2c2e !important;
+    border: 1px solid #ccc !important; 
+}
+
+/* Кнопка Create account */
+.secondary-btn { 
+    background-color: #90c2ff !important; 
+    color: white !important; 
+}
+
+/* Кнопка Log in */
+.primary-btn { 
+    background-color: #6da9f2 !important; 
+    color: white !important; 
+}
+
+/* Ефекти ховеру */
+.nav-actions button:hover {
+    opacity: 0.9;
+}
+.lang-btn:hover {
+    background-color: #f9fbfd !important;
+}
+
+/* ==========================================================================
+   КОНТЕНТ СТОРІНКИ ПІДТВЕРДЖЕННЯ (БЕЗ ЗМІН)
+   ========================================================================== */
+.logo-bar { 
+    text-align: center; 
+    padding: 20px; 
+}
+
+.logo-container img { 
+    width: 180px; 
+}
+
+/* Контейнер підтвердження */
+.confirmation-container { 
+    max-width: 1000px; 
+    margin: 40px auto; 
+    padding: 0 20px; 
+    flex: 1; /* Заповнює вільний простір, штовхаючи футер вниз */
+}
+
+.conf-title { 
+    font-weight: normal; 
+    font-size: 28px; 
+    text-align: center; 
+    margin-bottom: 30px; 
+}
+
+.booked-for { 
+    font-size: 18px; 
+    margin-bottom: 40px; 
+    margin-left: 20px; 
+}
+
+/* Сітка - блоки тепер на одному рівні */
+.conf-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    align-items: start; /* Вирівнює верхівки карток по одній лінії */
+}
+
+/* Картки з інфою */
+.info-card { 
+    background-color: #e2eeff; 
+    border-radius: 12px; 
+    padding: 25px; 
+    margin-bottom: 25px; 
+    min-height: 120px; 
+    box-sizing: border-box;
+}
+
+.small-label { 
+    display: block; 
+    font-size: 14px; 
+    color: #5a7ba3; 
+    margin-bottom: 15px; 
+}
+
+/* Дати */
+.dates-card { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-around; 
+    text-align: center; 
+}
+
+.date-val { 
+    font-size: 18px; 
+    display: block; 
+}
+
+.arrow { 
+    font-size: 24px; 
+    color: #5a7ba3; 
+}
+
+/* Ціни */
+.fee-row { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 10px; 
+    font-size: 18px; 
+}
+
+.total-row { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 30px; 
+    font-size: 22px; 
+    font-weight: bold; 
+}
+
+/* Повідомлення про пошту */
+.email-notice { 
+    background-color: #e2eeff; 
+    border-radius: 12px; 
+    padding: 20px; 
+    text-align: center; 
+    font-size: 18px; 
+}
+
+/* Оновлений футер - більше не перекриває контент */
+.copyright-bar { 
+    background-color: #8bb3e8; 
+    color: #334d6e; 
+    text-align: center; 
+    padding: 15px; 
+    width: 100%; 
+    margin-top: auto; /* Додатковий захист, щоб футер був внизу */
+}

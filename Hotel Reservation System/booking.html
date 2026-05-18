@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Aurora - Complete Your Booking</title>
+    <link rel="stylesheet" href="booking.css">
+    <style>
+        /* Глобальне скидання відступів */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="contact-info"><span>📞 +48 000 000 000</span></div>
+        <div class="nav-actions">
+            <button class="lang-btn">🌐 ENG</button>
+            <button class="secondary-btn" onclick="location.href='create_account.html'">Create account</button>
+            <button class="primary-btn" onclick="location.href='login.html'">Log in ➔</button>
+        </div>
+    </header>
+
+    <div class="logo-bar">
+        <div class="logo-container">
+            <a href="index.html"><img src="logo_aurora.jpg" alt="Hotel Aurora Logo"></a>
+        </div>
+    </div>
+
+    <main class="booking-container">
+        <h1 class="main-title">Complete The Booking Process</h1>
+
+        <div class="booking-grid">
+            <div class="booking-forms">
+                <section class="form-section">
+                    <p class="form-instruction">Please enter data only in English.</p>
+                    
+                    <div class="guest-block">
+                        <h3>Guest 1</h3>
+                        <div class="input-row">
+                            <div class="field"><label>Name</label><input type="text" id="guest-name" placeholder="Enter name"></div>
+                            <div class="field"><label>Surname</label><input type="text" id="guest-surname" placeholder="Enter surname"></div>
+                        </div>
+                    </div>
+
+                    <div class="guest-block">
+                        <h3>Guest 2</h3>
+                        <div class="input-row">
+                            <div class="field"><label>Name</label><input type="text"></div>
+                            <div class="field"><label>Surname</label><input type="text"></div>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="field"><label>E-mail address</label><input type="email" placeholder="@gmail.com"></div>
+                        <div class="field">
+                            <label>Phone number</label>
+                            <input type="tel" id="phone-input" value="+48 " maxlength="15">
+                        </div>
+                    </div>
+
+                    <div class="field full-width">
+                        <label>Special wishes</label>
+                        <textarea rows="3"></textarea>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2>Payment</h2>
+                    <p class="security-note">We guarantee the security of your payment card</p>
+                    <div class="input-row">
+                        <div class="field">
+                            <label>Card number</label>
+                            <input type="text" id="card-input" placeholder="0000 0000 0000 0000" maxlength="19">
+                        </div>
+                        <div class="field compact">
+                            <label>Validity period</label>
+                            <div class="date-inputs">
+                                <input type="text" placeholder="mm" maxlength="2">
+                                <input type="text" placeholder="year" maxlength="4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field"><label>CVV</label><input type="text" placeholder="000" maxlength="3" style="width: 80px;"></div>
+                </section>
+
+                <section class="form-section terms-section">
+                    <h2>Terms And Conditions</h2>
+                    <p>By making a reservation, I confirm that I have read and accept the Terms of Use...</p>
+                    <button class="final-reserve-btn" id="submit-booking">Reserve</button>
+                </section>
+            </div>
+
+            <aside class="booking-summary">
+                <div class="summary-image">
+                    <img src="royal_suite.jpg" id="room-img" alt="Room Image">
+                </div>
+                <div class="summary-content">
+                    <h2 id="room-name">Royal Ocean View Suite</h2>
+                    <div class="summary-row">
+                        <span>Cost</span>
+                        <div class="price-box"><span id="room-price">350€</span><small>per night</small></div>
+                    </div>
+                    <div class="summary-row"><span>Dates</span><span id="display-dates">m/ d-d / y</span></div>
+                    <div class="summary-row"><span>Booking</span><span>1 room - 2 guests</span></div>
+                    <div class="summary-type"><p>Type of guest room:</p><strong>all inclusive</strong></div>
+                    
+                    <div class="stay-breakdown">
+                        <div class="summary-row"><span>Stay (<span id="nights-count">2</span> nights)</span><span id="subtotal">700€</span></div>
+                        <div class="summary-row"><span>Taxes (VAT 12.00%)</span><span id="vat">12€</span></div>
+                    </div>
+
+                    <div class="summary-total">
+                        <span>Total cost:</span>
+                        <span id="total-price">712€</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script>
+        // 1. Маски для вводу
+        const phoneInput = document.getElementById('phone-input');
+        phoneInput.addEventListener('input', (e) => {
+            let v = e.target.value.replace(/\D/g, '').slice(2, 11);
+            let res = '+48 ';
+            if (v.length > 0) res += v.substring(0, 3);
+            if (v.length > 3) res += ' ' + v.substring(3, 6);
+            if (v.length > 6) res += ' ' + v.substring(6, 9);
+            e.target.value = res;
+        });
+
+        const cardInput = document.getElementById('card-input');
+        cardInput.addEventListener('input', (e) => {
+            let v = e.target.value.replace(/\D/g, '').slice(0, 16);
+            let parts = v.match(/.{1,4}/g);
+            e.target.value = parts ? parts.join(' ') : '';
+        });
+
+        // 2. Логіка розрахунку та відображення
+        const params = new URLSearchParams(window.location.search);
+        const roomType = params.get('room') || 'royal';
+        const checkIn = params.get('in');
+        const checkOut = params.get('out');
+
+        const roomData = {
+            'royal': { name: 'Royal Ocean View Suite', price: 350, img: 'royal_suite.jpg' },
+            'paradise': { name: 'Paradise Horizon Room', price: 200, img: 'paradise_room.jpg' },
+            'luxe': { name: 'Luxe Marine Suite', price: 300, img: 'luxe_marine.jpg' },
+            'infinity': { name: 'Blue Infinity Suite', price: 250, img: 'blue_infinity.jpg' }
+        };
+
+        let nights = 2;
+        if (checkIn && checkOut) {
+            const d1 = new Date(checkIn);
+            const d2 = new Date(checkOut);
+            nights = Math.ceil(Math.abs(d2 - d1) / (1000 * 60 * 60 * 24)) || 1;
+            document.getElementById('display-dates').innerText = `${d1.toLocaleDateString()} - ${d2.toLocaleDateString()}`;
+        }
+
+        const currentRoom = roomData[roomType];
+        const subtotal = currentRoom.price * nights;
+        const total = subtotal + 12;
+
+        document.getElementById('room-name').innerText = currentRoom.name;
+        document.getElementById('room-img').src = currentRoom.img;
+        document.getElementById('room-price').innerText = currentRoom.price + '€';
+        document.getElementById('nights-count').innerText = nights;
+        document.getElementById('subtotal').innerText = subtotal + '€';
+        document.getElementById('total-price').innerText = total + '€';
+
+        // 3. Перехід на підтвердження
+        document.getElementById('submit-booking').onclick = function() {
+            const name = document.getElementById('guest-name').value || "Guest";
+            const surname = document.getElementById('guest-surname').value || "";
+            
+            let finalUrl = `confirmation.html?name=${encodeURIComponent(name)}&surname=${encodeURIComponent(surname)}&room=${roomType}`;
+            if (checkIn && checkOut) finalUrl += `&in=${checkIn}&out=${checkOut}`;
+            
+            window.location.href = finalUrl;
+        };
+    </script>
+</body>
+</html>

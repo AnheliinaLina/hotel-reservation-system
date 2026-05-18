@@ -1,0 +1,121 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Times New Roman', serif; background-color: #fff; color: #3b6091; }
+
+/* ==========================================================================
+   ОНОВЛЕНА НАВІГАЦІЯ (ЗГІДНО З FIGMA)
+   ========================================================================== */
+.top-nav { 
+    background-color: #e2eeff; /* Ніжно-блакитний фон хедера з Figma */
+    padding: 10px 40px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.nav-actions {
+    display: flex;
+    gap: 10px; /* Акуратний відступ між кнопками */
+}
+
+.nav-actions button { 
+    padding: 8px 15px; 
+    border-radius: 5px; 
+    border: none; 
+    cursor: pointer; 
+    font-family: Arial, sans-serif; /* Чистий інтерфейсний шрифт для кнопок */
+    font-weight: 500;
+    font-size: 14px;
+    transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+}
+
+/* Кнопка мови (🌐 ENG) — тепер біла з синім текстом та рамкою, як на фото 2 */
+.lang-btn { 
+    background-color: #ffffff; 
+    color: #292d31; 
+    border: 1px solid #b2d4ff; 
+}
+
+/* САМЕ ЦЕЙ КЛАС ВІДПОВІДАЄ ЗА КНОПКУ "Create account" */
+.secondary-btn { 
+    background-color: #8fbdfa; 
+    color: white;
+}
+
+.primary-btn { 
+    background-color: #6da5f3; 
+    color: white;
+}
+
+/* Ефекти наведення для кнопок */
+.nav-actions button:hover {
+    opacity: 0.9;
+}
+.lang-btn:hover {
+    background-color: #f2f7ff;
+    opacity: 1;
+}
+
+.logo-bar { padding: 20px 0; text-align: center; }
+.logo-container img { width: 250px; }
+
+/* ==========================================================================
+   Основна сітка та решта твоїх стилів (без змін)
+   ========================================================================== */
+.booking-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+.main-title { font-size: 2.5rem; margin-bottom: 30px; font-weight: normal; }
+.booking-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; }
+
+/* Форми */
+.form-section { background-color: #E2EFFF; padding: 30px; border-radius: 15px; margin-bottom: 30px; }
+.form-section h2 { font-size: 2rem; margin-bottom: 15px; font-weight: normal; }
+.form-instruction { color: #5a7fb2; margin-bottom: 20px; font-style: italic; }
+
+.guest-block { margin-bottom: 25px; }
+.guest-block h3 { margin-bottom: 15px; font-weight: normal; }
+
+.input-row { display: flex; gap: 20px; margin-bottom: 20px; }
+.field { flex: 1; display: flex; flex-direction: column; }
+.field label { margin-bottom: 8px; font-size: 1rem; }
+.field input, .field textarea { 
+    padding: 12px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: #B2D4FF; 
+    color: #3b6091; 
+    font-size: 1rem;
+}
+
+.field input::placeholder { color: #5a7fb2; }
+
+/* Оплата */
+.security-note { margin-bottom: 20px; font-size: 1.1rem; }
+.date-inputs { display: flex; gap: 10px; }
+.date-inputs input { width: 80px; text-align: center; }
+
+/* Правила та кнопка */
+.terms-section p { font-size: 0.9rem; margin-bottom: 15px; line-height: 1.4; }
+.final-reserve-btn { 
+    width: 100%; 
+    padding: 15px; 
+    background-color: #3b6091; 
+    color: white; 
+    border: none; 
+    border-radius: 10px; 
+    font-size: 1.2rem; 
+    cursor: pointer; 
+    margin-top: 20px;
+}
+
+/* Права панель (Summary) */
+.booking-summary { background-color: #7FB3F5; border-radius: 15px; overflow: hidden; height: fit-content; color: white; }
+.summary-image img { width: 100%; height: 250px; object-fit: cover; }
+.summary-content { padding: 30px; }
+.summary-content h2 { font-size: 1.8rem; margin-bottom: 25px; font-weight: normal; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px; }
+
+.summary-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 1.1rem; }
+.summary-type { margin: 25px 0; }
+.stay-details { margin: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px; }
+.taxes { margin-top: 20px; }
+.summary-total { display: flex; justify-content: space-between; font-size: 1.5rem; margin-top: 30px; font-weight: bold; }
+
+.copyright-bar { text-align: center; padding: 20px; color: #3b6091; background-color: #DDEBFF; margin-top: 40px; }

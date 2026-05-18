@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Aurora - My Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-left">
+            <span class="phone-icon">📞</span>
+            <span class="phone-number">+48 000 000 000</span>
+        </div>
+        <div class="header-right">
+            <button class="lang-btn">🌐 ENG</button>
+            <button class="nav-btn btn-outline" onclick="location.href='create_account.html'">Create account</button>
+            <button class="nav-btn btn-primary" onclick="location.href='login.html'">➔ Log in</button>
+        </div>
+    </header>
+
+    <div class="branding-container">
+        <div class="logo-placeholder">
+            <a href="index.html">
+                <img src="logo_aurora.jpg" alt="Hotel Aurora Logo">
+            </a>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <h1 class="page-title">My Profile</h1>
+
+        <div class="profile-grid">
+            <div class="profile-card">
+                <div class="card-badge"></div>
+                <div class="info-group">
+                    <h2 id="profMainName">Name Surname</h2>
+                    <p id="profMainEmail">E-mail</p>
+                    <p id="profMainPhone">Phone number</p>
+                </div>
+                <button class="change-info-btn">Change info</button>
+            </div>
+
+            <div class="profile-card">
+                <div class="card-badge"></div>
+                <div class="personal-info-container">
+                    <h3>Personal info</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <span class="field-label">name</span>
+                            <span class="field-value" id="profName">--------</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="field-label">surname</span>
+                            <span class="field-value" id="profSurname">--------</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <span class="field-label">street</span>
+                            <span class="field-value" id="profStreet">--------</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="field-label">phone number</span>
+                            <span class="field-value" id="profPhone">--------</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <span class="field-label">city</span>
+                            <span class="field-value" id="profCity">--------</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="field-label">post index</span>
+                            <span class="field-value" id="profPostcode">--------</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Hotel Aurora. All rights reserved</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Зчитуємо об'єкт за ключем 'userProfile', який використовується у твоїй формі
+            const savedProfile = localStorage.getItem('userProfile');
+
+            if (savedProfile) {
+                // Перетворюємо рядок назад в об'єкт JavaScript
+                const user = JSON.parse(savedProfile);
+
+                // 1. Оновлюємо ліву картку (головний екран профілю)
+                if (user.name && user.surname) {
+                    document.getElementById('profMainName').textContent = user.name + " " + user.surname;
+                }
+                if (user.email) {
+                    document.getElementById('profMainEmail').textContent = user.email;
+                }
+                if (user.phone && user.phone.trim() !== "+48") {
+                    document.getElementById('profMainPhone').textContent = user.phone;
+                }
+
+                // 2. Оновлюємо детальну анкету на правій картці
+                document.getElementById('profName').textContent = user.name || "--------";
+                document.getElementById('profSurname').textContent = user.surname || "--------";
+                document.getElementById('profStreet').textContent = user.street || "--------";
+                document.getElementById('profPhone').textContent = user.phone || "--------";
+                document.getElementById('profCity').textContent = user.city || "--------";
+                document.getElementById('profPostcode').textContent = user.postcode || "--------";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+/* БАЗОВЕ СКИДАННЯ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    background-color: #ffffff; /* Фон сторінки чисто білий */
+    color: #2F4858;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ХЕДЕР */
+.header {
+    background-color: #E3EFFD;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    width: 100%;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4A6572;
+    font-size: 13px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* КНОПКИ В ХЕДЕРІ */
+.lang-btn {
+    background-color: #ffffff; /* Кнопка мови біла */
+    color: #000000;            /* Текст чорний */
+    border: 1px solid #b3d1ff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.nav-btn {
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-outline {
+    background-color: #6FA4F6;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #518EE7;
+    color: white;
+}
+
+/* КОНТЕЙНЕР ЛОГОТИПУ З РОЗМІРАМИ 400х162 */
+.branding-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto 0 auto;
+    padding: 0 50px;
+}
+
+.logo-placeholder {
+    width: 400px;  /* Точна ширина з Фігми */
+    height: 162px; /* Точна висота з Фігми */
+    display: block;
+}
+
+/* Налаштування для майбутньої картинки всередині блоку */
+.logo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Картинка масштабується без спотворень пропорцій */
+    display: block;
+}
+
+/* ОСНОВНА ЧАСТИНА */
+.main-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 50px 50px 50px;
+    flex: 1;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 42px;
+    color: #2D5286;
+    font-family: 'Georgia', serif;
+    font-weight: normal;
+    margin-bottom: 45px;
+}
+
+/* СІТКА КАРТОК */
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 45px;
+}
+
+/* БЛАКИТНІ ПЛАШКИ КАРТОК */
+.profile-card {
+    background-color: #DCE9FC;
+    border-radius: 14px;
+    padding: 35px;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-badge {
+    width: 32px;
+    height: 32px;
+    background-color: #6FA4F6;
+    border-radius: 50%;
+    margin-bottom: 25px;
+}
+
+/* ЛІВА КАРТКА */
+.info-group h2 {
+    font-size: 24px;
+    color: #2D5286;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.info-group p {
+    font-size: 20px;
+    color: #4B6E9C;
+    margin-bottom: 12px;
+}
+
+.change-info-btn {
+    background-color: #6FA4F6;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+/* ПРАВА КАРТКА */
+.personal-info-container h3 {
+    font-size: 18px;
+    color: #4B6E9C;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.field-label {
+    font-size: 14px;
+    color: #718DAF;
+}
+
+/* Точкові підкреслення полів */
+.field-value {
+    font-size: 17px;
+    color: #2D5286;
+    padding-bottom: 4px;
+    border-bottom: 1.5px dashed #6FA4F6;
+    min-height: 28px;
+    display: block;
+}
+
+/* ФУТЕР */
+.footer {
+    background-color: #6FA4F6;
+    color: #DCE9FC;
+    text-align: center;
+    padding: 14px 0;
+    font-size: 14px;
+    width: 100%;
+}

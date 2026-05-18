@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Hotel Aurora</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        /* Global settings for matching Figma design */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+
+        .login-main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .login-card h1 {
+            color: #3b5a84;
+            font-size: 42px;
+            font-weight: normal;
+            margin-bottom: 40px;
+        }
+
+        /* Input styling */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e2eeff;
+            color: #5a7ba3;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .form-group input::placeholder {
+            color: #8faecf;
+        }
+
+        /* Terms & Conditions styling */
+        .terms-container {
+            background-color: #e2eeff;
+            padding: 15px 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
+        .terms-container input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #3b5a84;
+        }
+
+        .terms-container label {
+            color: #5a7ba3;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Log in Button */
+        .login-submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #74abf5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .login-submit-btn:hover {
+            background-color: #5a91e0;
+        }
+
+        /* Error message styling */
+        .error-message {
+            color: #e74c3c;
+            font-size: 15px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="contact-info"><span>📞 +48 000 000 000</span></div>
+        <div class="nav-actions">
+            <button class="lang-btn">🌐 ENG</button>
+            <button class="secondary-btn" onclick="location.href='create_account.html'">Create account</button>
+            <button class="primary-btn" onclick="location.href='login.html'">Log in ➔</button>
+        </div>
+    </header>
+
+    <div class="logo-bar">
+        <div class="logo-container">
+            <a href="index.html"><img src="logo_aurora.jpg" alt="Hotel Aurora Logo"></a>
+        </div>
+    </div>
+
+    <main class="login-main">
+        <div class="login-card">
+            <h1>Log In</h1>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" id="login-email" placeholder="E-mail" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="login-phone" value="+48 " maxlength="15">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="login-pass" placeholder="Password" required>
+                </div>
+
+                <div id="error-box" class="error-message">Invalid email or password!</div>
+
+                <div class="terms-container" onclick="document.getElementById('terms').click()">
+                    <input type="checkbox" id="terms" required onclick="event.stopPropagation()">
+                    <label for="terms">Terms & conditions</label>
+                </div>
+
+                <button type="submit" class="login-submit-btn">Log in</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="copyright-bar">
+        <p>© 2026 Hotel Aurora. All rights reserved</p>
+    </footer>
+
+    <script>
+        // Маска для номера телефону (+48 XXX XXX XXX)
+        const phoneInput = document.getElementById('login-phone');
+
+        phoneInput.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, ''); 
+            
+            if (!value.startsWith('48')) {
+                value = '48' + value;
+            }
+
+            let coreNumber = value.substring(2, 11);
+            
+            let formatted = '+48 ';
+            if (coreNumber.length > 0) formatted += coreNumber.substring(0, 3);
+            if (coreNumber.length > 3) formatted += ' ' + coreNumber.substring(3, 6);
+            if (coreNumber.length > 6) formatted += ' ' + coreNumber.substring(6, 9);
+            
+            e.target.value = formatted;
+        });
+
+        phoneInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Backspace' && e.target.value.length <= 4) {
+                e.preventDefault();
+            }
+        });
+
+        // ІНТЕГРОВАНА ЛОГІКА АВТОРИЗАЦІЇ З LOCALSTORAGE
+        document.getElementById('loginForm').onsubmit = function(e) {
+            e.preventDefault();
+            
+            // 1. Зчитуємо дані з інпутів
+            const inputEmail = document.getElementById('login-email').value.trim();
+            const inputPass = document.getElementById('login-pass').value;
+            const errorBox = document.getElementById('error-box');
+
+            // 2. Витягуємо дані створеного акаунта, які зберіг твій файл create_account.html
+            const savedProfile = localStorage.getItem('userProfile');
+            const savedPassword = localStorage.getItem('userPassword');
+
+            // Якщо в пам'яті взагалі порожньо — акаунт не створено
+            if (!savedProfile || !savedPassword) {
+                errorBox.textContent = "No account found! Please register first.";
+                errorBox.style.display = "block";
+                return;
+            }
+
+            // Перетворюємо збережений JSON-рядок назад в об'єкт
+            const user = JSON.parse(savedProfile);
+
+            // 3. Звіряємо пошту та пароль із тими, що були вказані при реєстрації
+            if (inputEmail === user.email && inputPass === savedPassword) {
+                errorBox.style.display = "none";
+                // Якщо все збігається — перекидаємо на сторінку профілю
+                window.location.href = 'profile.html';
+            } else {
+                // Якщо пошта чи пароль не підходять — показуємо червону помилку
+                errorBox.textContent = "Invalid email or password!";
+                errorBox.style.display = "block";
+            }
+        };
+    </script>
+
+</body>
+</html>
