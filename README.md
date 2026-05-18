@@ -21,16 +21,16 @@ SPRINT 2
   8.Logowanie 
 
 SPRINT 3
-  10.Rejestracja
-  11.Formularz rezerwacji
-  12.Walidacja formularzy
-  13.Tworzenie rezerwacji
+  9.Rejestracja
+  10.Formularz rezerwacji
+  11.Walidacja formularzy
+  12.Tworzenie rezerwacji
 
 Sprint 4
-  14.Testy demo
-  15.Poprawa błędów
-  16.Poprawa wyglądu strony 
-  17.Deployment 
+  13.Testy demo
+  14.Poprawa błędów
+  15.Poprawa wyglądu strony 
+  16.Deployment 
   ```
 ## 4. Autorzy ##
    
